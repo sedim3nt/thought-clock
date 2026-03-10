@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0a0a0c;
+  --color-bg-card: #111114;
+  --color-bg-glow: #1a1a2e;
+  --color-border: #222233;
+  --color-text: #e8e8f0;
+  --color-text-dim: #666680;
+  --color-text-muted: #444455;
+  --color-accent: #00ff88;
+  --color-accent-dim: #00cc6a;
+  --color-accent-glow: rgba(0, 255, 136, 0.15);
+  --color-warn: #ff4444;
+  --color-warn-glow: rgba(255, 68, 68, 0.15);
+  --color-human: #4488ff;
+  --color-human-glow: rgba(68, 136, 255, 0.15);
+  --font-mono: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+}
+
+html {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 0%, var(--color-bg-glow) 0%, var(--color-bg) 70%);
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes flash {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+.clock-glow {
+  text-shadow: 0 0 40px var(--color-accent), 0 0 80px var(--color-accent-glow);
+}
+
+.clock-done {
+  animation: flash 0.3s ease-in-out 3;
+  text-shadow: 0 0 60px var(--color-warn), 0 0 120px var(--color-warn-glow);
+}
